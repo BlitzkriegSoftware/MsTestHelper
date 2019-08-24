@@ -1,8 +1,10 @@
 # MsTestHelperCore #
 Helpers for MSTEST in .NET Core
 
-
-
+* AssertHelper - Quick JSON Serialization Tests on Populated Objects
+* MsTestLogger - Proivdes an ILogger for MSTEST
+* TestOutputHelper - Dumps an object as JSON to TestContext
+* TxTimer - Wrap a chunk of code to time it
 
 
 ## License
