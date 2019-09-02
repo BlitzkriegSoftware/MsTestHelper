@@ -4,17 +4,41 @@ using System.Text;
 
 namespace BlitzkriegSoftware.MsTest.Test.Models
 {
+    /// <summary>
+    /// Fake DTO Class (w. Self Populating Helpers)
+    /// </summary>
     public class TestModel
     {
-        private Random _dice = new Random();
+        private readonly Random _dice = new Random();
 
+        /// <summary>
+        /// String
+        /// </summary>
         public string Text { get; set; }
+        /// <summary>
+        /// DateTime
+        /// </summary>
         public DateTime Stamp { get; set; }
+        /// <summary>
+        /// Double
+        /// </summary>
         public Double Science { get; set; }
+        /// <summary>
+        /// Long
+        /// </summary>
         public long BigCounter { get; set; }
+        /// <summary>
+        /// Decimal
+        /// </summary>
         public decimal Money { get; set; }
+        /// <summary>
+        /// Boolean
+        /// </summary>
         public bool IsSo { get; set; }
 
+        /// <summary>
+        /// Self Populate w. Random Data
+        /// </summary>
         public void Populate()
         {
             this.BigCounter = (long) _dice.Next(1, 1000);

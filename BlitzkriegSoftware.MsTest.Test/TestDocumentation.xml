@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BlitzkriegSoftware.MsTest.Test</name>
+    </assembly>
+    <members>
+        <member name="T:BlitzkriegSoftware.MsTest.Test.Models.TestModel">
+            <summary>
+            Fake DTO Class (w. Self Populating Helpers)
+            </summary>
+        </member>
+        <member name="P:BlitzkriegSoftware.MsTest.Test.Models.TestModel.Text">
+            <summary>
+            String
+            </summary>
+        </member>
+        <member name="P:BlitzkriegSoftware.MsTest.Test.Models.TestModel.Stamp">
+            <summary>
+            DateTime
+            </summary>
+        </member>
+        <member name="P:BlitzkriegSoftware.MsTest.Test.Models.TestModel.Science">
+            <summary>
+            Double
+            </summary>
+        </member>
+        <member name="P:BlitzkriegSoftware.MsTest.Test.Models.TestModel.BigCounter">
+            <summary>
+            Long
+            </summary>
+        </member>
+        <member name="P:BlitzkriegSoftware.MsTest.Test.Models.TestModel.Money">
+            <summary>
+            Decimal
+            </summary>
+        </member>
+        <member name="P:BlitzkriegSoftware.MsTest.Test.Models.TestModel.IsSo">
+            <summary>
+            Boolean
+            </summary>
+        </member>
+        <member name="M:BlitzkriegSoftware.MsTest.Test.Models.TestModel.Populate">
+            <summary>
+            Self Populate w. Random Data
+            </summary>
+        </member>
+        <member name="T:BlitzkriegSoftware.MsTest.Test.Test_Helpers">
+            <summary>
+            Main Unit Tests
+            </summary>
+        </member>
+        <member name="M:BlitzkriegSoftware.MsTest.Test.Test_Helpers.SetupTests(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext)">
+            <summary>
+            This runs before testing
+            </summary>
+            <param name="testContext"></param>
+        </member>
+        <member name="M:BlitzkriegSoftware.MsTest.Test.Test_Helpers.CleanUpTests">
+            <summary>
+            Clean up after all tests in the class has run
+            </summary>
+        </member>
+        <member name="M:BlitzkriegSoftware.MsTest.Test.Test_Helpers.Test_Logger">
+            <summary>
+            Test MS Logging Extensions
+            </summary>
+        </member>
+        <member name="M:BlitzkriegSoftware.MsTest.Test.Test_Helpers.Test_Timer">
+            <summary>
+            Test Timer
+            </summary>
+        </member>
+        <member name="M:BlitzkriegSoftware.MsTest.Test.Test_Helpers.Test_AssertHelper">
+            <summary>
+            Serialization to JSON
+            </summary>
+        </member>
+    </members>
+</doc>

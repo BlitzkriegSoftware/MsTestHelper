@@ -11,7 +11,7 @@
         </member>
         <member name="M:BlitzkriegSoftware.MsTest.AssertHelpers.AssertSerialization``1(``0,Microsoft.VisualStudio.TestTools.UnitTesting.TestContext)">
             <summary>
-            XUnit Tests that a model serializes correctly
+            Tests that a model serializes correctly
             </summary>
             <typeparam name="T">Type</typeparam>
             <param name="thing1">Instance of T to test</param>

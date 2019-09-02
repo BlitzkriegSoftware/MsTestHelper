@@ -2,7 +2,6 @@
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace BlitzkriegSoftware.MsTest
@@ -15,7 +14,7 @@ namespace BlitzkriegSoftware.MsTest
         #region "Serialization Helper"
 
         /// <summary>
-        /// XUnit Tests that a model serializes correctly
+        /// Tests that a model serializes correctly
         /// </summary>
         /// <typeparam name="T">Type</typeparam>
         /// <param name="thing1">Instance of T to test</param>
@@ -55,5 +54,4 @@ namespace BlitzkriegSoftware.MsTest
         #endregion
 
     }
-
 }
