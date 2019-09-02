@@ -1,13 +1,12 @@
 using Microsoft.Extensions.Logging;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using BlitzkriegSoftware.MsTest;
 using System;
 using System.Threading;
 
 namespace BlitzkriegSoftware.MsTest.Test
 {
     /// <summary>
-    /// Main Unit Tests
+    /// Main Unit Tests <c>BlitzkriegSoftware.MsTest</c>
     /// </summary>
     [TestClass]
     public class Test_Helpers
@@ -32,7 +31,7 @@ namespace BlitzkriegSoftware.MsTest.Test
         /// Clean up after all tests in the class has run
         /// </summary>
         [TestCleanup]
-        public static void CleanUpTests()
+        public void CleanUpTests()
         {
             // Do what ever clean up you want
         }
