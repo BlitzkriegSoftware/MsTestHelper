@@ -15,7 +15,7 @@
             </summary>
             <typeparam name="T">Type</typeparam>
             <param name="thing1">Instance of T to test</param>
-            <param name="output">XUnit Test Output</param>
+            <param name="output">TestContext</param>
         </member>
         <member name="T:BlitzkriegSoftware.MsTest.MsTestLogger`1">
             <summary>
@@ -60,6 +60,19 @@
             Dispose (DTOR)
             </summary>
         </member>
+        <member name="T:BlitzkriegSoftware.MsTest.TestJsonSerializationHelper">
+            <summary>
+            An Extension to use the helper from TestContext
+            </summary>
+        </member>
+        <member name="M:BlitzkriegSoftware.MsTest.TestJsonSerializationHelper.AssertJsonSerialization``1(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext,``0)">
+            <summary>
+            Tests that a model serializes correctly, will fail the internal <c>Assert</c> if not.
+            </summary>
+            <typeparam name="T">Type</typeparam>
+            <param name="thing1">Instance of T to test</param>
+            <param name="testContext">TestContext</param>
+        </member>
         <member name="T:BlitzkriegSoftware.MsTest.TestOutputHelper">
             <summary>
             Helper to output as JSON
@@ -95,6 +108,12 @@
             CTOR
             <para>Also starts timer</para>
             </summary>
+        </member>
+        <member name="M:BlitzkriegSoftware.MsTest.TxTimer.#ctor(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext)">
+            <summary>
+            CTOR with optional injection of TestContext
+            </summary>
+            <param name="testContext"></param>
         </member>
         <member name="P:BlitzkriegSoftware.MsTest.TxTimer.StopWatch">
             <summary>

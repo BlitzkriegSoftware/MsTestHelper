@@ -46,7 +46,7 @@
         </member>
         <member name="T:BlitzkriegSoftware.MsTest.Test.Test_Helpers">
             <summary>
-            Main Unit Tests
+            Main Unit Tests <c>BlitzkriegSoftware.MsTest</c>
             </summary>
         </member>
         <member name="M:BlitzkriegSoftware.MsTest.Test.Test_Helpers.SetupTests(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext)">

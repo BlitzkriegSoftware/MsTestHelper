@@ -59,10 +59,9 @@ namespace BlitzkriegSoftware.MsTest.Test
         [Description("Show the Test Timer")]
         public void Test_Timer()
         {
-            using(var tx = new TxTimer())
+            using(var tx = new TxTimer(_testContext))
             {
                 Thread.Sleep(10);
-                _testContext.WriteLine("Elapsed: {0}", TxTimer.DisplayElaspsedTime(tx.ElapsedMilliseconds));
             }
         }
 
@@ -74,10 +73,15 @@ namespace BlitzkriegSoftware.MsTest.Test
         [Description("Show how to dump objects as JSON to Test Output, and Test to Make sure it JSON Serializes")]
         public void Test_AssertHelper()
         {
+            // Make a model and fill it with data
             var model = new Models.TestModel();
             model.Populate();
+
+            // Just Dump it as Json
             _testContext.AsJson(model, "Test Model");
-            AssertHelpers.AssertSerialization<Models.TestModel>(model, _testContext);
+            
+            // Assert that it will Json Serialize
+            _testContext.AssertJsonSerialization<Models.TestModel>(model);
         }
 
     }

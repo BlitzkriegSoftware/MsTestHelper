@@ -6,12 +6,15 @@
     <Authors>Stuart Williams</Authors>
     <Company>Blitzkrieg Software</Company>
     <Description>A set of useful MSTEST helpers for .NET Core</Description>
-    <Copyright>(c) 2017-2018</Copyright>
+    <Copyright>(c) 2017-2019</Copyright>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageProjectUrl>https://github.com/BlitzkriegSoftware/MsTestHelperCore</PackageProjectUrl>
-    <RepositoryUrl></RepositoryUrl>
+    <RepositoryUrl>https://github.com/BlitzkriegSoftware/MsTestHelperCore</RepositoryUrl>
     <PackageTags>MsTest, .NET Core, Helpers, Test</PackageTags>
     <PackageReleaseNotes>Useful libraries, also see github repository and gists.</PackageReleaseNotes>
+    <Version>1.0.2</Version>
+    <PackageIconUrl>http://blitzkriegsoftware.net/Images/Logo/blizkrieglogo100_60.jpg</PackageIconUrl>
+    <RepositoryType>Git</RepositoryType>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -29,6 +30,18 @@ namespace BlitzkriegSoftware.MsTest
         {
             Start();
         }
+
+        private TestContext _testContext = null;
+
+        /// <summary>
+        /// CTOR with optional injection of TestContext
+        /// </summary>
+        /// <param name="testContext"></param>
+        public TxTimer(TestContext testContext) : this()
+        {
+            _testContext = testContext;
+        }
+
 
         #region "Stop Watch
 
@@ -64,7 +77,7 @@ namespace BlitzkriegSoftware.MsTest
             get
             {
                 long ms = 0;
-                if ((stopWatch != null) && (stopWatch.IsRunning)) ms = stopWatch.ElapsedMilliseconds;
+                if (stopWatch != null)  ms = stopWatch.ElapsedMilliseconds;
                 return ms;
             }
         }
@@ -77,7 +90,7 @@ namespace BlitzkriegSoftware.MsTest
             get
             {
                 long ticks = 0;
-                if ((stopWatch != null) && (stopWatch.IsRunning)) ticks = stopWatch.ElapsedTicks;
+                if (stopWatch != null) ticks = stopWatch.ElapsedTicks;
                 return ticks;
             }
         }
@@ -133,7 +146,7 @@ namespace BlitzkriegSoftware.MsTest
             if (stopWatch != null)
             {
                 if (stopWatch.IsRunning) stopWatch.Stop();
-                ms = stopWatch.ElapsedMilliseconds;
+                ms = this.ElapsedMilliseconds;
             }
             return ms;
         }
@@ -181,7 +194,14 @@ namespace BlitzkriegSoftware.MsTest
             {
                 if (disposing)
                 {
-                    if ((stopWatch != null) && (stopWatch.IsRunning)) Stop();
+                    if (stopWatch != null)
+                    {
+                        var ms = Stop();
+                        if(_testContext != null)
+                        {
+                            _testContext.WriteLine("Elaspsed: {0}", TxTimer.DisplayElaspsedTime(ms));
+                        }
+                    }
                 }
             }
             disposed = true;
