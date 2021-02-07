@@ -2,6 +2,8 @@
 
 Helpers for MSTEST in .NET Core
 
+> See [full documentation](https://github.com/BlitzkriegSoftware/MsTestHelperCore/blob/master/BlitzkriegSoftware.MsTest/BlitzkriegSoftware.MsTest.md)
+
 * `MsTestLogger` - Proivdes a `Microsoft.Extensions.Logging.ILogger` to redirect logs to `TestContext`
 
 * `AssertHelper` - Quick JSON Serialization Tests on Populated Objects

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Text;
 
 namespace BlitzkriegSoftware.MsTest.Test.Models
@@ -6,6 +7,7 @@ namespace BlitzkriegSoftware.MsTest.Test.Models
     /// <summary>
     /// Fake DTO Class (w. Self Populating Helpers)
     /// </summary>
+    [ExcludeFromCodeCoverage]
     public class TestModel
     {
         private readonly Random _dice = new Random();

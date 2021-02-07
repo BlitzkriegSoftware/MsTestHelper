@@ -1,6 +1,7 @@
 using Microsoft.Extensions.Logging;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Threading;
 
 namespace BlitzkriegSoftware.MsTest.Test
@@ -9,6 +10,7 @@ namespace BlitzkriegSoftware.MsTest.Test
     /// Main Unit Tests <c>BlitzkriegSoftware.MsTest</c>
     /// </summary>
     [TestClass]
+    [ExcludeFromCodeCoverage]
     public class Test_Helpers
     {
         #region "Boilerplate"
@@ -48,6 +50,8 @@ namespace BlitzkriegSoftware.MsTest.Test
         public void Test_Logger()
         {
             var ex = new InvalidOperationException();
+            bool enabled = _logger.IsEnabled(LogLevel.Critical);
+            Assert.IsTrue(enabled, "Critical Should Be Enabled");
             _logger.LogCritical(ex, "Critical");
         }
 
@@ -61,8 +65,22 @@ namespace BlitzkriegSoftware.MsTest.Test
         {
             using(var tx = new TxTimer(_testContext))
             {
-                Thread.Sleep(10);
+                tx.Reset();
+                using (var scope = _logger.BeginScope("In Timer"))
+                {
+                    Thread.Sleep(10);
+                }
+
+                // Assert.IsNotNull()
+
+                _testContext.WriteLine($"{tx.IsRunning}, {tx.ElapsedMilliseconds}, {tx.ElaspsedTicks}");
             }
+
+            using(var tx2 = new TxTimer(_testContext))
+            {
+                tx2.Cancel();
+            }
+
         }
 
         /// <summary>
@@ -80,6 +98,9 @@ namespace BlitzkriegSoftware.MsTest.Test
             // Just Dump it as Json
             _testContext.AsJson(model, "Test Model");
             
+            // No title
+            _testContext.AsJson(model);
+
             // Assert that it will Json Serialize
             _testContext.AssertJsonSerialization<Models.TestModel>(model);
         }

@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Text;
 
 namespace BlitzkriegSoftware.MsTest
@@ -50,6 +51,7 @@ namespace BlitzkriegSoftware.MsTest
         /// Stop watch instance
         /// <para>Do not access directly if possible</para>
         /// </summary>
+        [ExcludeFromCodeCoverage]
         private System.Diagnostics.Stopwatch StopWatch
         {
             get { return stopWatch; }
