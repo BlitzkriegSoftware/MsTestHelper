@@ -6,29 +6,39 @@
     <Authors>Stuart Williams</Authors>
     <Company>Blitzkrieg Software</Company>
     <Description>A set of useful MSTEST helpers for .NET Core</Description>
-    <Copyright>(c) 2017-2019</Copyright>
+    <Copyright>(c) 2017-2021</Copyright>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageProjectUrl>https://github.com/BlitzkriegSoftware/MsTestHelperCore</PackageProjectUrl>
     <RepositoryUrl>https://github.com/BlitzkriegSoftware/MsTestHelperCore</RepositoryUrl>
     <PackageTags>MsTest, .NET Core, Helpers, Test</PackageTags>
     <PackageReleaseNotes>Useful libraries, also see github repository and gists.</PackageReleaseNotes>
-    <Version>1.0.2</Version>
-    <PackageIconUrl>http://blitzkriegsoftware.net/Images/Logo/blizkrieglogo100_60.jpg</PackageIconUrl>
+    <Version>1.0.3</Version>
+    <PackageIconUrl></PackageIconUrl>
     <RepositoryType>Git</RepositoryType>
+    <PackageIcon>blizkrieglogo300.png</PackageIcon>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>Documentation.xml</DocumentationFile>
+    <DocumentationFile>.\BlitzkriegSoftware.MsTest.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.Logging" Version="2.2.0" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.2.0" />
-    <PackageReference Include="MSTest.TestFramework" Version="1.4.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="5.0.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.8.3" />
+    <PackageReference Include="MSTest.TestFramework" Version="2.1.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Vsxmd" Version="1.4.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="..\..\Faker.Data.Core\Faker.Data.Core\blizkrieglogo300.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
     <None Include="..\LICENSE">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
