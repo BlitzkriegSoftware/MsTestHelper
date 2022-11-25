@@ -12,8 +12,8 @@
 		<RepositoryUrl>https://github.com/BlitzkriegSoftware/MsTestHelperCore</RepositoryUrl>
 		<PackageTags>MsTest, .NET Core, Helpers, Test</PackageTags>
 		<PackageReleaseNotes>Useful libraries, also see github repository and gists.</PackageReleaseNotes>
-		<Version>1.0.6</Version>
-		<InformationalVersion>1.0.6</InformationalVersion>
+		<Version>1.6.0</Version>
+		<InformationalVersion>1.6.0</InformationalVersion>
 		<PackageIconUrl></PackageIconUrl>
 		<RepositoryType>Git</RepositoryType>
 		<PackageIcon>blizkrieglogo300.png</PackageIcon>
@@ -21,6 +21,7 @@
 		<ApplicationIcon>BlitzkriegSoftware.ico</ApplicationIcon>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<IncludeSymbols>True</IncludeSymbols>
+		<Title>Helpers for MS TEST</Title>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -42,11 +43,7 @@
 		<PackageReference Include="Microsoft.Extensions.Logging" Version="7.0.0" />
 		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.4.0" />
 		<PackageReference Include="MSTest.TestFramework" Version="2.2.10" />
-		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-		<PackageReference Include="Vsxmd" Version="1.4.5">
-			<PrivateAssets>all</PrivateAssets>
-			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-		</PackageReference>
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
 	</ItemGroup>
 
 	<ItemGroup>
