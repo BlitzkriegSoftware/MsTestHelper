@@ -76,7 +76,7 @@ namespace BlitzkriegSoftware.MsTest.Test
                 _testContext.WriteLine($"{tx.IsRunning}, {tx.ElapsedMilliseconds}, {tx.ElaspsedTicks}");
             }
 
-            using(var tx2 = new TxTimer(_testContext))
+            using(TxTimer tx2 = new TxTimer(_testContext))
             {
                 tx2.Cancel();
             }
