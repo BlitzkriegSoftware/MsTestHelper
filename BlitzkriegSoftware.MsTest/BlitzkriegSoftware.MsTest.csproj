@@ -12,8 +12,8 @@
 		<RepositoryUrl>https://github.com/BlitzkriegSoftware/MsTestHelperCore</RepositoryUrl>
 		<PackageTags>MsTest, .NET Core, Helpers, Test</PackageTags>
 		<PackageReleaseNotes>Useful libraries, also see github repository and gists.</PackageReleaseNotes>
-		<Version>1.6.2</Version>
-		<InformationalVersion>1.6.2</InformationalVersion>
+		<Version>1.7.0</Version>
+		<InformationalVersion>1.7.0</InformationalVersion>
 		<PackageIconUrl></PackageIconUrl>
 		<RepositoryType>Git</RepositoryType>
 		<PackageIcon>blizkrieglogo300.png</PackageIcon>

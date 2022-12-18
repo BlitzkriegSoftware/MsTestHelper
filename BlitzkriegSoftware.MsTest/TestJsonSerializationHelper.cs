@@ -44,7 +44,7 @@ namespace BlitzkriegSoftware.MsTest
                 {
                     if (t1[key] != null)
                     {
-                        Assert.AreEqual(t1[key].ToString(), t2[key].ToString());
+                        Assert.AreEqual(t1[key].ToString(), t2[key].ToString(), message: key);
                     }
                 }
             }

@@ -63,15 +63,13 @@ namespace BlitzkriegSoftware.MsTest.Test
         [Description("Show the Test Timer")]
         public void Test_Timer()
         {
-            using(var tx = new TxTimer(_testContext))
+            using(var tx = new TxTimer(_testContext, "Test"))
             {
                 tx.Reset();
                 using (var scope = _logger.BeginScope("In Timer"))
                 {
                     Thread.Sleep(10);
                 }
-
-                // Assert.IsNotNull()
 
                 _testContext.WriteLine($"{tx.IsRunning}, {tx.ElapsedMilliseconds}, {tx.ElaspsedTicks}");
             }

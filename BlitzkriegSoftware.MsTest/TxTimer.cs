@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Text;
 
@@ -23,6 +24,8 @@ namespace BlitzkriegSoftware.MsTest
     /// </summary>
     public class TxTimer : IDisposable
     {
+
+        #region "CTOR"
         /// <summary>
         /// CTOR
         /// <para>Also starts timer</para>
@@ -37,12 +40,25 @@ namespace BlitzkriegSoftware.MsTest
         /// <summary>
         /// CTOR with optional injection of TestContext
         /// </summary>
-        /// <param name="testContext"></param>
+        /// <param name="testContext">(sic)</param>
         public TxTimer(TestContext testContext) : this()
         {
             _testContext = testContext;
         }
 
+        private string title = null;
+
+        /// <summary>
+        /// CTOR
+        /// </summary>
+        /// <param name="testContext">(sic)</param>
+        /// <param name="title">(sic)</param>
+        public TxTimer(TestContext testContext, string title) : this(testContext)
+        {
+            this.title = title;
+        }
+
+        #endregion
 
         #region "Stop Watch
 
@@ -199,10 +215,7 @@ namespace BlitzkriegSoftware.MsTest
                     if (stopWatch != null)
                     {
                         var ms = Stop();
-                        if(_testContext != null)
-                        {
-                            _testContext.WriteLine("Elaspsed: {0}", TxTimer.DisplayElaspsedTime(ms));
-                        }
+                        _testContext?.WriteLine($"{(string.IsNullOrWhiteSpace(this.title) ? "" : title + ": ")}Elaspsed: {TxTimer.DisplayElaspsedTime(ms)}");
                     }
                 }
             }

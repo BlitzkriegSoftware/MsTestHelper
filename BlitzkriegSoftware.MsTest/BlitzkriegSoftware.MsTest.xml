@@ -4,19 +4,6 @@
         <name>BlitzkriegSoftware.MsTest</name>
     </assembly>
     <members>
-        <member name="T:BlitzkriegSoftware.MsTest.AssertHelpers">
-            <summary>
-            Helpers to do asserts on objects in bulk
-            </summary>
-        </member>
-        <member name="M:BlitzkriegSoftware.MsTest.AssertHelpers.AssertSerialization``1(``0,Microsoft.VisualStudio.TestTools.UnitTesting.TestContext)">
-            <summary>
-            Tests that a model serializes correctly
-            </summary>
-            <typeparam name="T">Type</typeparam>
-            <param name="thing1">Instance of T to test</param>
-            <param name="output">TestContext</param>
-        </member>
         <member name="T:BlitzkriegSoftware.MsTest.MsTestLogger`1">
             <summary>
             ILogger for MsTest
@@ -113,7 +100,14 @@
             <summary>
             CTOR with optional injection of TestContext
             </summary>
-            <param name="testContext"></param>
+            <param name="testContext">(sic)</param>
+        </member>
+        <member name="M:BlitzkriegSoftware.MsTest.TxTimer.#ctor(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext,System.String)">
+            <summary>
+            CTOR
+            </summary>
+            <param name="testContext">(sic)</param>
+            <param name="title">(sic)</param>
         </member>
         <member name="P:BlitzkriegSoftware.MsTest.TxTimer.StopWatch">
             <summary>
