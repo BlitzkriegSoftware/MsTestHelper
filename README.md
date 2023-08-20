@@ -1,7 +1,8 @@
-# MsTestHelperCore #
+# MsTestHelper #
 
 Helpers for MSTEST in .NET Std. 2.1
 
+> Please see unit test for examples of how to use these helpers
 
 * `MsTestLogger` - Provides a `Microsoft.Extensions.Logging.ILogger` to redirect logs to `TestContext`
 
@@ -11,11 +12,9 @@ Helpers for MSTEST in .NET Std. 2.1
 
 * TxTimer - Wrap around chunk of code in a `using` to time it
 
-> Please see unit test for examples of how to use these helpers
-
 Licensed under the [MIT license](LICENSE).
 
-## About me ##
+## About me
 
 **Stuart Williams**
 
@@ -23,3 +22,5 @@ Licensed under the [MIT license](LICENSE).
 * <a href="mailto:stuart.t.williams@outlook.com" target="_blank">stuart.t.williams@outlook.com</a> (e-mail)
 * LinkedIn: <a href="http://lnkd.in/P35kVT" target="_blank">http://lnkd.in/P35kVT</a>
 * YouTube: <a href="https://www.youtube.com/user/spookdejur1962/videos" target="_blank">https://www.youtube.com/user/spookdejur1962/videos</a> 
+* GitHub: <a href="https://github.com/blitzkriegsoftware" target="_blank>https://github.com/blitzkriegsoftware</a>
+* NuGet: <a href="https://www.nuget.org/packages?q=BlitzkriegSoftware" target="_blank>https://www.nuget.org/packages?q=BlitzkriegSoftware</a>
