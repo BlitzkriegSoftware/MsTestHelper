@@ -2,49 +2,67 @@
 
 	<PropertyGroup>
 		<TargetFramework>netstandard2.1</TargetFramework>
-		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<LangVersion>9.0</LangVersion>
 		<Authors>Stuart Williams</Authors>
 		<Company>Blitzkrieg Software</Company>
-		<Description>A set of useful MSTEST helpers for .NET Core</Description>
-		<Copyright>(c) 2017-2022</Copyright>
+		<Title>Helpers for MS TEST</Title>
+		<Description>A set of useful MSTEST helpers for .NET</Description>
+		<Copyright>(c) 2017-2023 Stuart Williams</Copyright>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<EnableNETAnalyzers>true</EnableNETAnalyzers>
+		<IncludeSymbols>True</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<Version>1.8.0</Version>
+		<InformationalVersion>1.8.0</InformationalVersion>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<PackageLicenseFile>LICENSE</PackageLicenseFile>
 		<PackageProjectUrl>https://github.com/BlitzkriegSoftware/MsTestHelperCore</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/BlitzkriegSoftware/MsTestHelperCore</RepositoryUrl>
 		<PackageTags>MsTest, .NET Core, Helpers, Test</PackageTags>
 		<PackageReleaseNotes>Useful libraries, also see github repository and gists.</PackageReleaseNotes>
-		<Version>1.7.0</Version>
-		<InformationalVersion>1.7.0</InformationalVersion>
 		<PackageIconUrl></PackageIconUrl>
 		<RepositoryType>Git</RepositoryType>
 		<PackageIcon>blizkrieglogo300.png</PackageIcon>
-		<EnableNETAnalyzers>true</EnableNETAnalyzers>
 		<ApplicationIcon>BlitzkriegSoftware.ico</ApplicationIcon>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
-		<IncludeSymbols>True</IncludeSymbols>
-		<Title>Helpers for MS TEST</Title>
-		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+		<Nullable>disable</Nullable>
+		<ProduceReferenceAssembly>True</ProduceReferenceAssembly>
+		<AnalysisLevel>5.0</AnalysisLevel>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
 		<DocumentationFile>.\BlitzkriegSoftware.MsTest.xml</DocumentationFile>
+		<WarningLevel>5</WarningLevel>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+	  <WarningLevel>5</WarningLevel>
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <None Remove="blizkrieglogo300.png" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Content Include="BlitzkriegSoftware.ico" />
-	  <Content Include="blizkrieglogo300.png">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </Content>
-	</ItemGroup>
-
-	<ItemGroup>
 		<PackageReference Include="Microsoft.Extensions.Logging" Version="7.0.0" />
-		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.4.0" />
-		<PackageReference Include="MSTest.TestFramework" Version="3.0.0" />
-		<PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.7.1" />
+		<PackageReference Include="MSTest.TestFramework" Version="3.1.1" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Remove="blizkrieglogo300.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Content Include="BlitzkriegSoftware.ico" />
+		<Content Include="blizkrieglogo300.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
 	</ItemGroup>
 
 	<ItemGroup>
