@@ -35,7 +35,7 @@ namespace BlitzkriegSoftware.MsTest
             Start();
         }
 
-        private TestContext _testContext = null;
+        private readonly TestContext _testContext = null;
 
         /// <summary>
         /// CTOR with optional injection of TestContext
@@ -46,7 +46,7 @@ namespace BlitzkriegSoftware.MsTest
             _testContext = testContext;
         }
 
-        private string title = null;
+        private readonly string title = null;
 
         /// <summary>
         /// CTOR
@@ -149,7 +149,7 @@ namespace BlitzkriegSoftware.MsTest
         /// </summary>
         public void Start()
         {
-            if (stopWatch == null) stopWatch = new System.Diagnostics.Stopwatch();
+            stopWatch ??= new System.Diagnostics.Stopwatch();
             stopWatch.Reset();
             stopWatch.Start();
         }

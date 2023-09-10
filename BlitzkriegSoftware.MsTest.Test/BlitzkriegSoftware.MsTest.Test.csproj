@@ -2,17 +2,22 @@
 
 	<PropertyGroup>
 		<Title>Tests for BlitzkriergSoftware.MsTest</Title>
+		<Description>Test the test helper</Description>
+		<Authors>Stuart Williams</Authors>
+		<Company>Blitzkrieg Software</Company>
+		<Copyright>(c) 2017-2023 Stuart Williams</Copyright>
 	</PropertyGroup>
 	
 	<PropertyGroup>
 		<TargetFramework>net6.0</TargetFramework>
 		<LangVersion>9.0</LangVersion>
 		<IsPackable>false</IsPackable>
+		<Nullable>disable</Nullable>
 	</PropertyGroup>
 
 	<PropertyGroup>
-		<Version>1.8.1</Version>
-		<InformationalVersion>1.8.1</InformationalVersion>
+		<Version>1.8.3</Version>
+		<InformationalVersion>1.8.3</InformationalVersion>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

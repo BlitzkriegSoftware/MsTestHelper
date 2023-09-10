@@ -9,6 +9,17 @@
             Fake DTO Class (w. Self Populating Helpers)
             </summary>
         </member>
+        <member name="M:BlitzkriegSoftware.MsTest.Test.Models.TestModel.#ctor">
+            <summary>
+            CTOR
+            </summary>
+        </member>
+        <member name="M:BlitzkriegSoftware.MsTest.Test.Models.TestModel.#ctor(System.Boolean)">
+            <summary>
+            CTOR
+            </summary>
+            <param name="doPopulate">Call Populate</param>
+        </member>
         <member name="P:BlitzkriegSoftware.MsTest.Test.Models.TestModel.Text">
             <summary>
             String
@@ -43,6 +54,12 @@
             <summary>
             Self Populate w. Random Data
             </summary>
+        </member>
+        <member name="M:BlitzkriegSoftware.MsTest.Test.Models.TestModel.TextMaker">
+            <summary>
+            Makes a small random block of text
+            </summary>
+            <returns>Text</returns>
         </member>
         <member name="T:BlitzkriegSoftware.MsTest.Test.Test_Helpers">
             <summary>

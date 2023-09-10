@@ -38,7 +38,6 @@ namespace BlitzkriegSoftware.MsTest.Test
             // Do what ever clean up you want
         }
 
-
         #endregion
 
         /// <summary>
@@ -74,10 +73,12 @@ namespace BlitzkriegSoftware.MsTest.Test
                 _testContext.WriteLine($"{tx.IsRunning}, {tx.ElapsedMilliseconds}, {tx.ElaspsedTicks}");
             }
 
-            using(TxTimer tx2 = new TxTimer(_testContext))
+#pragma warning disable IDE0063 // A timer in a using should have an explict block
+            using(TxTimer tx2 = new(_testContext))
             {
                 tx2.Cancel();
             }
+#pragma warning restore IDE0063 // Use simple 'using' statement
 
         }
 
@@ -90,13 +91,12 @@ namespace BlitzkriegSoftware.MsTest.Test
         public void Test_AssertHelper()
         {
             // Make a model and fill it with data
-            var model = new Models.TestModel();
-            model.Populate();
+            var model = new Models.TestModel(true);
 
             // Just Dump it as Json
             _testContext.AsJson(model, "Test Model");
             
-            // No title
+            // Json Dump, No title
             _testContext.AsJson(model);
 
             // Assert that it will Json Serialize

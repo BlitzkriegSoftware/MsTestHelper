@@ -10,7 +10,30 @@ namespace BlitzkriegSoftware.MsTest.Test.Models
     [ExcludeFromCodeCoverage]
     public class TestModel
     {
-        private readonly Random _dice = new Random();
+
+        #region "CTOR"
+
+        /// <summary>
+        /// CTOR
+        /// </summary>
+        public TestModel() { }
+
+        /// <summary>
+        /// CTOR
+        /// </summary>
+        /// <param name="doPopulate">Call Populate</param>
+        public TestModel(bool doPopulate): base()
+        {
+            if(doPopulate) { Populate(); }
+        }
+
+        #endregion
+
+        #region "Privates"
+        private readonly Random _dice = new();
+        #endregion
+
+        #region "Properties"
 
         /// <summary>
         /// String
@@ -36,6 +59,9 @@ namespace BlitzkriegSoftware.MsTest.Test.Models
         /// Boolean
         /// </summary>
         public bool IsSo { get; set; }
+        #endregion
+
+        #region "Helpers"
 
         /// <summary>
         /// Self Populate w. Random Data
@@ -47,14 +73,18 @@ namespace BlitzkriegSoftware.MsTest.Test.Models
             this.Science = (_dice.NextDouble() * 98765.4321d);
             this.Stamp = DateTime.UtcNow;
             this.Text = TextMaker();
-            this.IsSo = (_dice.NextDouble() > .5 ? true : false);
+            this.IsSo = (_dice.NextDouble() > .5);
         }
 
-        private string TextMaker()
+        /// <summary>
+        /// Makes a small random block of text
+        /// </summary>
+        /// <returns>Text</returns>
+        public string TextMaker()
         {
             const string Alpha = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtWwXxYyZz";
             var len = _dice.Next(8, 18);
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new();
             for(int i=0; i< len; i++)
             {
                 var index = _dice.Next(0, Alpha.Length);
@@ -63,5 +93,7 @@ namespace BlitzkriegSoftware.MsTest.Test.Models
             }
             return sb.ToString();
         }
+        #endregion
+
     }
 }

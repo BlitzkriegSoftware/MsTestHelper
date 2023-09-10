@@ -13,7 +13,7 @@ namespace BlitzkriegSoftware.MsTest
     /// <typeparam name="T"></typeparam>
     public class MsTestLogger<T> : ILogger<T>, IDisposable
     {
-        private TestContext _output;
+        private readonly TestContext _output;
 
         /// <summary>
         /// CTOR
@@ -64,6 +64,7 @@ namespace BlitzkriegSoftware.MsTest
         /// </summary>
         public void Dispose()
         {
+            GC.SuppressFinalize(this);
         }
     }
 }
