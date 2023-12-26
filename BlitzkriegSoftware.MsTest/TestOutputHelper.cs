@@ -21,5 +21,19 @@ namespace BlitzkriegSoftware.MsTest
             if (string.IsNullOrWhiteSpace(title)) output.WriteLine("{0}", json);
             else output.WriteLine("{0}\n{1}", title, json);
         }
+
+        /// <summary>
+        /// Return a Json String from a T
+        /// </summary>
+        /// <typeparam name="T">(type)</typeparam>
+        /// <param name="entity">(this to json)</param>
+        /// <returns>Json String or null</returns>
+        public static string AsJsonString<T>(this T entity)
+        {
+            if(entity == null) return null;
+            var json = JsonConvert.SerializeObject(entity);
+            return json;
+        }
+
     }
 }

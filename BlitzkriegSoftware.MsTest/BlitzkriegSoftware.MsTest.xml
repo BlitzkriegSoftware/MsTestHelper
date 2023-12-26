@@ -4,6 +4,36 @@
         <name>BlitzkriegSoftware.MsTest</name>
     </assembly>
     <members>
+        <member name="T:BlitzkriegSoftware.MsTest.ArgumentTypeMismatchException">
+            <summary>
+            Exception: Passed types do not agree
+            </summary>
+        </member>
+        <member name="M:BlitzkriegSoftware.MsTest.ArgumentTypeMismatchException.#ctor">
+            <summary>
+            CTOR
+            </summary>
+        </member>
+        <member name="M:BlitzkriegSoftware.MsTest.ArgumentTypeMismatchException.#ctor(System.String)">
+            <summary>
+            CTOR
+            </summary>
+            <param name="message">(sic)</param>
+        </member>
+        <member name="M:BlitzkriegSoftware.MsTest.ArgumentTypeMismatchException.#ctor(System.String,System.Exception)">
+            <summary>
+            CTOR
+            </summary>
+            <param name="message">(sic)</param>
+            <param name="innerException">(sic)</param>
+        </member>
+        <member name="M:BlitzkriegSoftware.MsTest.ArgumentTypeMismatchException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            (serialization)
+            </summary>
+            <param name="info">(sic)</param>
+            <param name="context">(sic)</param>
+        </member>
         <member name="T:BlitzkriegSoftware.MsTest.MsTestLogger`1">
             <summary>
             ILogger for MsTest
@@ -49,16 +79,36 @@
         </member>
         <member name="T:BlitzkriegSoftware.MsTest.TestJsonSerializationHelper">
             <summary>
-            An Extension to use the helper from TestContext
+            An Extension to compare if a class serializes to JSON and back correctly.
+            <para>Two potential Strategies</para>
             </summary>
         </member>
         <member name="M:BlitzkriegSoftware.MsTest.TestJsonSerializationHelper.AssertJsonSerialization``1(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext,``0)">
             <summary>
             Tests that a model serializes correctly, will fail the internal <c>Assert</c> if not.
+            <para>Does not always work with some classes with odd properties</para>
+            <para>This is our home grown method</para>
             </summary>
             <typeparam name="T">Type</typeparam>
             <param name="thing1">Instance of T to test</param>
             <param name="testContext">TestContext</param>
+        </member>
+        <member name="M:BlitzkriegSoftware.MsTest.TestJsonSerializationHelper.FindDiff(Newtonsoft.Json.Linq.JToken,Newtonsoft.Json.Linq.JToken,System.Collections.Generic.List{System.String}@)">
+            <summary>
+            Tries a different approach, using JTokens
+            <para>
+            Convert JSON to JToken
+            <code>
+            JToken token = JToken.Parse(jsonString);
+            </code>
+            </para>
+            <para>From a suggestion from <![CDATA[https://stackoverflow.com/questions/52645603/how-to-compare-two-json-objects-using-c-sharp]]></para>
+            </summary>
+            <param name="actual">Actual</param>
+            <param name="expected">Expected</param>
+            <param name="changedItems">list of diffs for a log</param>
+            <returns>JObject containing diff</returns>
+            <exception cref="T:BlitzkriegSoftware.MsTest.ArgumentTypeMismatchException">Passed types do not agree</exception>
         </member>
         <member name="T:BlitzkriegSoftware.MsTest.TestOutputHelper">
             <summary>
@@ -72,6 +122,14 @@
             <param name="output">ITestOutputHelper</param>
             <param name="o">object</param>
             <param name="title">(optional) Title</param>
+        </member>
+        <member name="M:BlitzkriegSoftware.MsTest.TestOutputHelper.AsJsonString``1(``0)">
+            <summary>
+            Return a Json String from a T
+            </summary>
+            <typeparam name="T">(type)</typeparam>
+            <param name="entity">(this to json)</param>
+            <returns>Json String or null</returns>
         </member>
         <member name="T:BlitzkriegSoftware.MsTest.TxTimer">
             <summary>

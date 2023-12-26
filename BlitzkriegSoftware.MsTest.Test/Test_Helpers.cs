@@ -1,6 +1,10 @@
+using BlitzkriegSoftware.MsTest.Test.Models;
 using Microsoft.Extensions.Logging;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Threading;
 
@@ -101,6 +105,81 @@ namespace BlitzkriegSoftware.MsTest.Test
 
             // Assert that it will Json Serialize
             _testContext.AssertJsonSerialization<Models.TestModel>(model);
+        }
+
+        /// <summary>
+        /// An alternative to testing serialization or comparing two objects
+        /// </summary>
+        [TestMethod]
+        public void Test_JsonDiff_1()
+        {
+            var errors = new List<string>();
+
+            // Make a model and fill it with data
+            var model = new Models.TestModel(true);
+            var json1 = model.AsJsonString<Models.TestModel>();
+            var actual = JToken.Parse(json1);
+
+            var model2 = JsonConvert.DeserializeObject<Models.TestModel>(json1);
+            var json2 = model2.AsJsonString<Models.TestModel>(); 
+            var expected = JToken.Parse(json2);
+
+            _ = actual.FindDiff(expected, ref errors);
+
+            var pass = (errors == null || errors.Count == 0);
+            Assert.IsTrue(pass);
+        }
+
+
+        /// <summary>
+        /// An alternative to testing serialization or comparing two objects
+        /// </summary>
+        [TestMethod]
+        public void Test_JsonDiff_2()
+        {
+            var errors = new List<string>();
+
+            // Make a model and fill it with data
+            var model = new Models.TestModel(true);
+            var json1 = model.AsJsonString<Models.TestModel>();
+            var actual = JToken.Parse(json1);
+
+            var model2 = JsonConvert.DeserializeObject<Models.TestModel>(json1);
+            model2.BigCounter = 99;
+            model2.Science = 3242.33f;
+            var json2 = model2.AsJsonString<Models.TestModel>();
+            var expected = JToken.Parse(json2);
+
+            _ = actual.FindDiff(expected, ref errors);
+
+            var pass = (errors == null || errors.Count == 0);
+            Assert.IsFalse(pass);
+        }
+
+        /// <summary>
+        /// An alternative to testing serialization or comparing two objects
+        /// </summary>
+        [TestMethod]
+        public void Test_JsonDiff_3()
+        {
+            var errors = new List<string>();
+
+            // Make a model and fill it with data
+            var model = ListHelper.ListMaker();
+            var json1 = model.AsJsonString<List<string>>();
+            var actual = JToken.Parse(json1);
+
+            var model2 = JsonConvert.DeserializeObject<List<string>>(json1);
+            model2.Remove(model2[0]);
+            model2.Add(Faker.Lorem.Word());
+            model2.Add(Faker.Lorem.Word());
+            var json2 = model2.AsJsonString<List<string>>();
+            var expected = JToken.Parse(json2);
+
+            _ = actual.FindDiff(expected, ref errors);
+
+            var pass = (errors == null || errors.Count == 0);
+            Assert.IsFalse(pass);
         }
 
     }

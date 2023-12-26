@@ -4,6 +4,18 @@
         <name>BlitzkriegSoftware.MsTest.Test</name>
     </assembly>
     <members>
+        <member name="T:BlitzkriegSoftware.MsTest.Test.Models.ListHelper">
+            <summary>
+            Makes a List
+            </summary>
+        </member>
+        <member name="M:BlitzkriegSoftware.MsTest.Test.Models.ListHelper.ListMaker(System.Int32)">
+            <summary>
+            Make a list
+            </summary>
+            <param name="count">How many items</param>
+            <returns>list</returns>
+        </member>
         <member name="T:BlitzkriegSoftware.MsTest.Test.Models.TestModel">
             <summary>
             Fake DTO Class (w. Self Populating Helpers)
@@ -90,6 +102,21 @@
         <member name="M:BlitzkriegSoftware.MsTest.Test.Test_Helpers.Test_AssertHelper">
             <summary>
             Serialization to JSON
+            </summary>
+        </member>
+        <member name="M:BlitzkriegSoftware.MsTest.Test.Test_Helpers.Test_JsonDiff_1">
+            <summary>
+            An alternative to testing serialization or comparing two objects
+            </summary>
+        </member>
+        <member name="M:BlitzkriegSoftware.MsTest.Test.Test_Helpers.Test_JsonDiff_2">
+            <summary>
+            An alternative to testing serialization or comparing two objects
+            </summary>
+        </member>
+        <member name="M:BlitzkriegSoftware.MsTest.Test.Test_Helpers.Test_JsonDiff_3">
+            <summary>
+            An alternative to testing serialization or comparing two objects
             </summary>
         </member>
     </members>
